@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: contoh-repcon
+  labels:
+    label-key1: label-value1 #label dan annation nempel di repcon, bukan di pod
+  annotations:
+    annotation-key1: annotation-value1
+spec:
+  replicas: 3 #jumlah yang akan di-run. tdk lebih tidak kurang.
+  selector:
+    label-key1: label-value1 #key dan value harus sama seperti yang di template di bawah ini
+  template:
+    metadata:
+      name: nginx-repcon
+      labels:
+        label-key1: label-value1 #ini harus sama seperti yang di selector
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+          ports:
+            - containerPort: 80

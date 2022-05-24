@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-label2
+  labels:
+    developer: fajrul
+    scrum-team: pecel-lele
+    description: learning-kubernetes
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      ports:
+        - containerPort: 80

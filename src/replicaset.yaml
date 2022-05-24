@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replica-set-name
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      label-key1: harus-match
+  template:
+    metadata:
+      name: pod-name
+      labels:
+        label-key1: harus-match
+    spec:
+      containers:
+        - name: container-name
+          image: nginx
+          ports:
+            - containerPort: 80

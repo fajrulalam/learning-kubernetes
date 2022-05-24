@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-annotation
+  labels:
+    developer: fajrul
+  annotations:
+    annotation-key1: hello this is created by fajrul
+    annotation-key2: learning kubernetes is really fun
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+      ports:
+        - containerPort: 80

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicaset-matchexpression
+spec:
+  replicas: 3
+  selector:
+    matchExpressions:
+      - key: developer
+        operator: In
+        values:
+          - fajrul
+          - aqila
+      - key: environment
+        operator: In
+        values:
+          - development
+          - sit
+          - sanity
+  template:
+    metadata:
+      name: pod-name
+      labels:
+        developer: fajrul
+        environment: development
+    spec:
+      containers:
+        - name: container-name
+          image: nginx
+          ports:
+            - containerPort: 80
