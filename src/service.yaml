@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-name
+spec:
+  selector:
+    label-key1: label-value1 #label selector ke pod
+  ports:
+    - port: 8080 #port buat service
+      targetPort: 80 #akan mengakses port 80 di podnya
