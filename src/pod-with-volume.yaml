@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: namapod
+  labels:
+    key1: value1
+    key2: value2
+    key3: value3
+spec:
+  volumes:
+    - name: namavolume
+      emptyDir: {}
+  containers:
+    - name: nama-container
+      image: image-name
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - mountPath: /app/volume
+          name: volume-name
